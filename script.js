@@ -54,6 +54,37 @@ const restaurant = {
   },
 };
 
+console.log('---- OR ----');
+// 1) Use any data type, return ANY data type, shor-circuting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// restaurant.numGuest = 23;
+const guest1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2);
+
+console.log('---- AND ----');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+console.log('Hello' && 23 && null && 'jonas');
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+/*
+//////////////////////////////
+// Rest Pattern and Parameters
 // 1) Destructuring
 
 // SPREAD, because on RIGHT side of =
@@ -97,7 +128,6 @@ restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 
 console.log(...x);
 
-/*
 ///////////////////////////////
 // The Spread Operator (...)
 const arr = [7, 8, 9];
