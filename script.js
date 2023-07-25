@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -85,7 +85,6 @@ rest2.owner &&= '<ANONYMOUS>';
 console.log(rest1);
 console.log(rest2);
 
-/*
 restaurant.numGuest = 0;
 const guests = restaurant.numGuest || 10;
 console.log(guests);
@@ -308,3 +307,100 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 */
+
+// Coding Challenge #1
+
+// Starting Conditions
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+
+  // printGoals: function (...players) {
+  //   console.log(
+  //     `Players who scored goals are ${players}. They scored in total ${this.scored.length} goals.`
+  //   );
+  // },
+};
+
+// Task 1)
+const players1 = [...game.players[0]];
+const players2 = [...game.players[1]];
+
+console.log(players1);
+console.log(players2);
+
+// Task 2)
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+// Task 3)
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+// Task 4)
+const substitutePlayers = ['Thiago', 'Coutinho', 'Perisic'];
+const playersFinal = [...players1, ...substitutePlayers];
+console.log(playersFinal);
+
+// Task 5)
+const oddsObj = game.odds;
+console.log(oddsObj);
+const { team1, x: draw, team2 } = oddsObj;
+console.log(team1, draw, team2);
+
+// // Task 6)
+// game.printGoals(...game.scored);
+
+// // Task 7
+
+// console.log(`Team one has ${team1 || team2} odds, so it's more likely to win`);
+
+// Task 6
+
+const printGoals = function (...players) {
+  console.log(
+    `Players who scored goals are ${players}. They scored in total ${game.players.length} goals.`
+  );
+};
+
+printGoals(...game.scored);
+
+// Task 7
+team1 < team2 && console.log('Team 1 is more likely to win');
+team1 > team2 && console.log('Team 2 is more likely to win');
