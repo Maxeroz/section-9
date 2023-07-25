@@ -54,6 +54,46 @@ const restaurant = {
   },
 };
 
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// Nullish assignment operator (null or undefinied)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+/*
+restaurant.numGuest = 0;
+const guests = restaurant.numGuest || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '');
+const guestCorrent = restaurant.numGuest ?? 10;
+console.log(guestCorrent);
+
 console.log('---- OR ----');
 // 1) Use any data type, return ANY data type, shor-circuting
 console.log(3 || 'Jonas');
@@ -63,7 +103,7 @@ console.log(undefined || null);
 
 console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-// restaurant.numGuest = 23;
+restaurant.numGuest = 0;
 const guest1 = restaurant.numGuest ? restaurant.numGuest : 10;
 console.log(guest1);
 
@@ -82,7 +122,8 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
-/*
+
+
 //////////////////////////////
 // Rest Pattern and Parameters
 // 1) Destructuring
