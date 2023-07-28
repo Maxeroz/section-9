@@ -53,6 +53,68 @@ const restaurant = {
   },
 };
 
+// Sets
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(orderSet);
+
+console.log(new Set('Jonas'));
+
+console.log(orderSet.size);
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('Bread'));
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Risotto');
+// orderSet.clear();
+console.log(orderSet);
+
+for (const order of orderSet) console.log(order);
+
+// Example
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+console.log(new Set('maksimozerskii').size);
+
+/*
+// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+
+///////////////////////////////
+// Optional chaining operator
 if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
 // console.log(restaurant.openingHours.mon.open);
@@ -88,7 +150,7 @@ if (users.length > 0) console.log(users[0].name);
 else console.log('User array empty');
 
 // console.log([]);
-/*
+
 ///////////////////////////////////
 // The for-of Loop
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -455,4 +517,84 @@ printGoals(...game.scored);
 // Task 7
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
+
+//////////////////////////
+// Coding Challenge #2
+
+// Starting Conditions
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// Task 1)
+
+for (const [goal, player] of game.scored.entries()) {
+  console.log(`Goal ${goal + 1}:${player}`);
+}
+
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(team1, draw, team2);
+
+// Task 2)
+
+const odds = Object.values(game.odds);
+// console.log(odds);
+let sum = 0;
+for (const result of odds) {
+  sum += result;
+}
+sum = sum / odds.length;
+console.log(sum);
+
+// Task 3)
+
+const odds2 = Object.entries(game.odds);
+// console.log(odds2);
+
+for (const [key, value] of odds2) {
+  console.log(`Odd of victory ${game?.[key] || 'draw'}: ${value}`);
+}
+
+// Task 4) Bonus  
+Not done.
+
 */
