@@ -94,6 +94,14 @@ const gameStr = `An event happened, on average, every ${
 } minutes`;
 console.log(gameStr);
 
+// g
+
+const time = [...gameEvents.keys()].pop();
+console.log(time);
+console.log(
+  `An event happened, on average, every ${time / gameEvents.size} minutes`
+);
+
 // 4) Task
 
 for (const [key, event] of gameEvents) {
