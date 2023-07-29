@@ -52,7 +52,57 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+/////////////////////////////
+//Coding Challenge #3
+// Conditions
+const gameEvents = new Map([
+  [17, '© GOAL'],
+  [36, 'Substitution'],
+  [47, '© GOAL'],
+  [61, 'Substitution'],
+  [64, 'Yellow card'],
+  [69, 'Red card'],
+  [70, 'Substitution'],
+  [72, 'Substitution'],
+  [76, '© GOAL'],
+  [80, '© GOAL'],
+  [92, 'Yellow card'],
+]);
 
+// 1) Task
+
+let events = [];
+
+for (const [key, value] of gameEvents) {
+  events.push(value);
+}
+
+let eventsSet = new Set(events);
+
+const arrayEvents = [...eventsSet];
+console.log(arrayEvents);
+
+// 2) Task
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+// 3) Task
+
+const gameStr = `An event happened, on average, every ${
+  90 / gameEvents.size
+} minutes`;
+console.log(gameStr);
+
+// 4) Task
+
+for (const [key, event] of gameEvents) {
+  console.log(`${key < 45 ? ['FIRST HALF'] : ['SECOND HALF']}, ${event} `);
+}
+
+/*
+/////////////////////////////
+// Maps: Iteration
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
   [1, 'C'],
@@ -91,7 +141,7 @@ console.log([...question]);
 
 console.log([...question.keys()]);
 console.log([...question.values()]);
-/*
+
 /////////////////////
 // Maps
 const rest = new Map();
