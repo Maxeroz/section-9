@@ -52,6 +52,49 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+// Working With Strings - Part 1
+
+const ariline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(ariline.length);
+console.log('B737'.length);
+
+console.log(ariline.indexOf('r'));
+console.log(ariline.lastIndexOf('r'));
+console.log(ariline.indexOf('Portugal'));
+
+console.log(ariline.slice(4));
+console.log(ariline.slice(4, 7));
+
+console.log(ariline.slice(ariline.indexOf('T'), ariline.indexOf(' ')));
+console.log(ariline.slice(ariline.lastIndexOf('P')));
+console.log(ariline.slice(ariline.lastIndexOf(' ') + 1));
+
+console.log(ariline.slice(-2));
+console.log(ariline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat 😬');
+  else console.log('You got lucky 😎');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas'));
+console.log(typeof new String('jonas'));
+console.log(typeof new String('jonas').slice(1));
+/*
 /////////////////////////////
 //Coding Challenge #3
 // Conditions
@@ -108,7 +151,6 @@ for (const [key, event] of gameEvents) {
   console.log(`${key < 45 ? ['FIRST HALF'] : ['SECOND HALF']}, ${event} `);
 }
 
-/*
 /////////////////////////////
 // Maps: Iteration
 const question = new Map([
