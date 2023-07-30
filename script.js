@@ -53,6 +53,74 @@ const restaurant = {
   },
 };
 
+/////////////////////////////
+// Working With Strings - Part 3
+
+// Split and Join
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+console.log(firstName, lastName);
+
+const newName = ['Mr', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+// My app
+// const capitalizeName = function (name) {
+//   let fullNameArray = [];
+//   const arrayName = name.split(' ');
+//   for (const word of arrayName) {
+//     const upperLetter = word[0].toUpperCase() + word.slice(1);
+//     fullNameArray.push(upperLetter);
+//   }
+//   console.log(fullNameArray.join(' '));
+// };
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('maksim ozerskii');
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(1111222233334444));
+console.log(maskCreditCard('1111222233334444'));
+
+// Repeat
+const message2 = 'Bad weather... All departures are Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'🛩️'.repeat(n)}`);
+};
+
+planesInLine(5);
+// My way of capitalizing fir letter via another king of a loop
+// const newArrayNames = ['dota', 'fl studio', 'nikita'];
+
+// for (let i = 0; i < newArrayNames.length; i++) {
+//   console.log(newArrayNames[i][0].toUpperCase() + newArrayNames[i].slice(1));
+// }
+
 /*
 /////////////////////////////
 // Working With Strings - Part 2
