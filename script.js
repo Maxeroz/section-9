@@ -1,8 +1,6 @@
 'use strict';
 
 // Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
@@ -52,6 +50,97 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+/////////////////////////////
+// String Methods Practice
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const flightsArray = flights.split('+');
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flightsArray) {
+  // const fixedSpaces = flight.replaceAll('_', ' ').replaceAll(';', ' ').trim();
+  const [type, from, to, time] = flight.split(';');
+  const output = `${
+    type.startsWith('Delayed', '1') ? '🔴' : ''
+  }${type.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(to)
+    .slice(0, 3)
+    .toUpperCase()} (${time.replace(':', 'h')})`.padStart(45);
+  console.log(output);
+}
+
+const me = 'Maksim Ozerskii';
+
+/*
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+*/
+
+//Coding Challenge #4
+
+// My solution
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+
+// const textEl = document.querySelector('textarea');
+// const btnEl = document.querySelector('button');
+
+// let fullCamelCase = '';
+// let finalArray = [];
+
+// btnEl.addEventListener('click', function () {
+//   const variablesStr = textEl.value;
+
+//   // console.log(variablesStr);
+//   const variablesStrLower = variablesStr.toLowerCase();
+//   const arrayVariables = variablesStrLower.split('\n');
+
+//   for (const word of arrayVariables) {
+//     let index = word.indexOf('_');
+//     let secondWord = word.slice(index + 1);
+//     const upperSecondWord = secondWord[0].toUpperCase() + secondWord.slice(1);
+//     const firstWord = word.slice(0, index);
+//     fullCamelCase = firstWord + upperSecondWord + ' ';
+//     finalArray.push(fullCamelCase);
+//     // console.log(fullCamelCase);
+//     console.log(fullCamelCase);
+//   }
+
+//   // console.log(finalArray);
+
+//   for (let i = 0; i < finalArray.length; i++) {
+//     console.log(i);
+//   }
+//   // console.log(newIndex);
+//   // console.log(arrayVariables);
+// });
+
+// Jonas Solution
+/*
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+  console.log(rows);
+
+  for (const [index, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+
+    console.log(`${output.padEnd(20)}${'✅'.repeat(index + 1)}`);
+  }
+});
 
 /////////////////////////////
 // Working With Strings - Part 3
@@ -121,7 +210,6 @@ planesInLine(5);
 //   console.log(newArrayNames[i][0].toUpperCase() + newArrayNames[i].slice(1));
 // }
 
-/*
 /////////////////////////////
 // Working With Strings - Part 2
 
